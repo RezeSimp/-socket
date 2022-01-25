@@ -11,6 +11,7 @@ with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
     clientsocket, address=s.accept() #accetta la connessione del socket
     with clientsocket as cs:
         print("Connessione da ",address)
+        contatore=0
         while True:
             data=cs.recv(1024)
             # if len(data)==0:
@@ -19,7 +20,7 @@ with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
             data=data.decode()
             data=json.loads(data)
             messaggio=data['messaggio']
-            contatore=0
-            ris=messaggio+ ' ' + contatore
-            contatore+=1
+            c=str(contatore)
+            ris=messaggio+ ' ' + c
+            contatore=contatore+1
             cs.sendall(ris.encode("UTF-8"))

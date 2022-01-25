@@ -7,7 +7,7 @@ PORT=65432
 with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:  #indica il tipo di protocollo utilizzato, sock stram indica il tipo di connessione. with tiene aperto il socket dandogli il nome di s, una volta eseguito il codice chiude automaticamente il socket
     s.connect((HOST,PORT))
     while True:
-        messaggio=input("Inserisci il messaggio, KO per uscire")
+        messaggio=input("Inserisci il messaggio, KO per uscire: ")
         if messaggio=="KO":
             s.close
             break
