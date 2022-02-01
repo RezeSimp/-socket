@@ -53,8 +53,6 @@ with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
             if comando[0:5] == '#exit':
                 s.close
             
-            if comando[0:6] == '#close':
-                False
 
 
 

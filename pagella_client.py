@@ -8,15 +8,15 @@ with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:  #indica il tipo di 
     s.connect((HOST,PORT))
     while True:
         comando=input("Inserisci il comando: ")
-        comando={'comando':comando}
-        comando=json.dumps(comando) #trasformiamo l'oggetto in una stringa
-        s.sendall(comando.encode("UTF-8")) #invia il vettore di byte
+        comandoV={'comando':comando}
+        comandoV=json.dumps(comandoV) #trasformiamo l'oggetto in una stringa
+        s.sendall(comandoV.encode("UTF-8")) #invia il vettore di byte
         data=s.recv(1024)
         data.decode()
         if comando == "#list":
             deserialized_dict=json.loads(data)
             print(deserialized_dict)
-        elif comando == "#list":
+        elif comando == "#get":
             deserialized_dict=json.loads(data)
             print(deserialized_dict)
         else:
