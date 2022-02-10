@@ -3,8 +3,8 @@ from email.message import Message
 import socket
 import json
 HOST="127.0.0.1"
-PORT=65432
-
+PORT=22004
+#invio dei comandi
 def invia_comandi(sock_service):
     while True:
         primoNumero=input("Inserisci il primo numero. exit() per uscire: ")
@@ -17,10 +17,13 @@ def invia_comandi(sock_service):
         'operazione':operazione,
         'secondoNumero':secondoNumero}
         messaggio=json.dumps(messaggio)
+        #invio del messaggio al server
         sock_service.sendall(messaggio.encode("UTF-8"))
+        #ricezione del risultato
         data=sock_service.recv(1024)
+        #output risultato dei dati decodificati
         print("Risultato: ",data.decode())
-
+#connessione al server
 def connessione_server(address,port):
     sock_service= socket.socket()
     sock_service.connect((address,port))
