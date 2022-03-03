@@ -34,7 +34,11 @@ def genera_richieste(num,address,port):
         'operazione':operazione,
         'secondoNumero':secondoNumero}
 
+    #trasfroma il messaggio in formato json
     messaggio=json.dumps(messaggio)
+    #invia al server il messaggio
+    s.sendall(messaggio.encode("UTF-8"))
+    #riceve i dati dai server
     data=s.recv(1024)
     print(messaggio)
     if not data:
@@ -62,9 +66,9 @@ if __name__ == '__main__':
         threads.append(thread)
     # 5 avvio tutti i thread
     for i in threads:
-        threads[i].start()
+        i.start()
     # 6 aspetto la fine di tutti i thread
-        threads[i].join() 
+        i.join() 
     end_time=time.time()
     print("Total THREADS time= ", end_time - start_time)
 
