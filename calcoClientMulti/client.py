@@ -24,8 +24,8 @@ def genera_richieste(num,address,port):
         sys.exit()
     #1. rimpiazzare questa parte con la generazione di operazioni e numeri random, non vogliamo inviare sempre 3+5 
     primoNumero=random.randint(0,100)
-    operazioni=["+","-","/","*"]
-    x=random.randint(0,3)
+    operazioni=["+","-","/","*","%"]
+    x=random.randint(0,4)
     operazione=operazioni[x]
     secondoNumero=random.randint(0,100)
     
