@@ -2,7 +2,7 @@ from email.message import Message
 import socket
 import json
 HOST="127.0.0.1"
-PORT=65432
+PORT=22004
 
 with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:  #indica il tipo di protocollo utilizzato, sock stram indica il tipo di connessione. with tiene aperto il socket dandogli il nome di s, una volta eseguito il codice chiude automaticamente il socket
     s.connect((HOST,PORT))
