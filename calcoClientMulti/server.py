@@ -12,7 +12,6 @@ def ricevi_comandi(sock_service,addr_client):
         #riceve i dati
         data=sock_service.recv(1024)
         # if len(data)==0:
-        print(data)
         if not data:
             break
         #decodifica i dati
