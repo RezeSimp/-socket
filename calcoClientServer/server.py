@@ -34,7 +34,7 @@ class Server():
     def ricevi_comandi(self,sock_service,addre_client):
         print("Avviato")
         while True:
-            dati=sock_service(2048)
+            dati=sock_service.recv(2048)
             if not dati:
                 print("Fine dati dal client. Reset")
                 break
@@ -58,7 +58,7 @@ class Server():
             if oper=="/":
                 risultato=int(n1)/int(n2)
             
-            dati=f"Risposta a : {str(addre_client)}. Il risultato dall'operazione({n1} {oper} {n2}) è :{risultato} "
+            dati=f"Risposta a : {str(addre_client)}. Il risultato dall'operazione({n1} {oper} {n2}) è : {risultato} "
             dati= dati.encode()
             sock_service.send(dati)
         sock_service.close()
